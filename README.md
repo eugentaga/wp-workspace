@@ -1,2 +1,2 @@
-# wp-workplace
-Wp Workplace
+# wp-workspace
+Wp Workspace

@@ -5,9 +5,9 @@
 const
 
   // ** change these two to yours **
-  wordpress_project_name = 'anvelope-iarna.test', // root folder in Vagrant
-  theme_name = 'anvelope-iarna',
-  browserSyncProxy = 'http://anvelope-iarna.test/', // or e.g. localhost:3000
+  wordpress_project_name = 'nume-proiect.test', // root folder in Vagrant
+  theme_name = 'nume-proiect',
+  browserSyncProxy = 'http://nume-proiect.test/', // or e.g. localhost:3000
 
   // source and build folders, ** change this to yours **
   dir = {
