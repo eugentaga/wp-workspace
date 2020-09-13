@@ -20,6 +20,10 @@ const
   noop          = require("gulp-noop"),
   newer         = require('gulp-newer'),
   imagemin      = require('gulp-imagemin'),
+  imageminGifsicle      = require('imagemin-gifsicle'),
+  imageminJpegRecompress      = require('imagemin-jpeg-recompress'),
+  imageminOptipng      = require('imagemin-optipng'),
+  imageminSvgo      = require('imagemin-svgo'),
   sass          = require('gulp-sass'),
   postcss       = require('gulp-postcss'),
   deporder      = require('gulp-deporder'),
@@ -59,7 +63,17 @@ const images_settings = {
 const images = function() {
   return src(images_settings.src)
     .pipe(newer(images_settings.build))
-    .pipe(imagemin())    
+    .pipe(imagemin([
+      imageminGifsicle({interlaced: true}),
+      imageminJpegRecompress({quality:'low'}),
+      imageminOptipng({optimizationLevel: 5}),
+      imageminSvgo({
+          plugins: [
+              {removeViewBox: true},
+              {cleanupIDs: false}
+          ]
+      })
+  ]))    
     .pipe(dest(images_settings.build));
 };
 
